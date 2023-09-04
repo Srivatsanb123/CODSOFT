@@ -9,6 +9,13 @@
 </head>
 <body>
     <div class="container mt-4">
+        <div class="d-flex justify-content-end mb-2">
+            {% if 'user_id' in session %}
+                <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+            {% endif %}
+        </div>        
         <h1>Create New Post</h1>
         <form method="POST" action="{{ url_for('create') }}">
             <div class="form-group">
